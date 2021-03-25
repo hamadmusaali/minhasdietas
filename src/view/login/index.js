@@ -22,20 +22,6 @@ export default class Login extends React.Component {
         }
     }
 
-    componentDidMount() {
-        var firebaseConfig = {
-            apiKey: "AIzaSyDB_N1f1vmZ9nR_qh5DLxRv9PeburrSF3o",
-            authDomain: "minhasdietas-3a916.firebaseapp.com",
-            projectId: "minhasdietas-3a916",
-            storageBucket: "minhasdietas-3a916.appspot.com",
-            messagingSenderId: "1089380727746",
-            appId: "1:1089380727746:web:86d0c4cdebae93e1ecb45b",
-            measurementId: "G-NDXL77S6P5"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-    }
-
     processLogin() {
         this.setState({ isLoading: true });
 
@@ -43,6 +29,11 @@ export default class Login extends React.Component {
 
         const loginUserSuccess = () => {
             this.props.navigation.navigate('Menu');
+            this.setState({
+                email: "",
+                password: "",
+                message: ""
+            })
         }
 
         const loginUserFailed = error => {
@@ -139,13 +130,26 @@ export default class Login extends React.Component {
                                 value={this.state.password}
                                 onChangeText={valor => { this.onChangeHandler('password', valor) }}
                             />
-                            <Icon
+                            {   
+                                this.state.showPass 
+                                ?
+                                <Icon
                                 name="eye"
                                 size={24}
                                 color="black"
                                 style={styles.icon}
                                 onPress={() => { this.showPassword() }}
-                            />
+                                />
+                                :
+                                <Icon
+                                name="eye-slash"
+                                size={24}
+                                color="black"
+                                style={styles.icon}
+                                onPress={() => { this.showPassword() }}
+                                />
+                            }
+                            
                         </View>
                     </Input1>
 

@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import firebase from 'firebase';
 
 import Login from './src/view/login';
 import Register from './src/view/register';
@@ -16,24 +17,42 @@ import AlterarRefeicao from './src/view/alterarRefeicao';
 
 const Stack = createStackNavigator();  
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Login" component={Login} options={ {headerShown: false} } />
-          <Stack.Screen name="Register" component={Register} options={ {headerShown: false} } />
-          <Stack.Screen name="Menu" component={Menu} options={ {headerShown: false} } />
-          <Stack.Screen name="Home" component={Home} options={ {headerShown: false} } />
-          <Stack.Screen name="AddDieta" component={AddDieta} options={ {headerShown: false} } />
-          <Stack.Screen name="AlterarDieta" component={AlterarDieta} options={ {headerShown: false} } />
-          <Stack.Screen name="ListaRefeicao" component={ListaRefeicao} options={ {headerShown: false} } />
-          <Stack.Screen name="AddRefeicao" component={AddRefeicao} options={ {headerShown: false} } />
-          <Stack.Screen name="AlterarRefeicao" component={AlterarRefeicao} options={ {headerShown: false} } />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </>
-  );
+export default class App extends React.Component {
+
+  componentDidMount() {
+    var firebaseConfig = {
+        apiKey: "AIzaSyDB_N1f1vmZ9nR_qh5DLxRv9PeburrSF3o",
+        authDomain: "minhasdietas-3a916.firebaseapp.com",
+        projectId: "minhasdietas-3a916",
+        storageBucket: "minhasdietas-3a916.appspot.com",
+        messagingSenderId: "1089380727746",
+        appId: "1:1089380727746:web:86d0c4cdebae93e1ecb45b",
+        measurementId: "G-NDXL77S6P5"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  }
+
+  render() {
+    return (
+      <>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="Login" component={Login} options={ {headerShown: false} } />
+            <Stack.Screen name="Register" component={Register} options={ {headerShown: false} } />
+            <Stack.Screen name="Menu" component={Menu} options={ {headerShown: false} } />
+            <Stack.Screen name="Home" component={Home} options={ {headerShown: false} } />
+            <Stack.Screen name="AddDieta" component={AddDieta} options={ {headerShown: false} } />
+            <Stack.Screen name="AlterarDieta" component={AlterarDieta} options={ {headerShown: false} } />
+            <Stack.Screen name="ListaRefeicao" component={ListaRefeicao} options={ {headerShown: false} } />
+            <Stack.Screen name="AddRefeicao" component={AddRefeicao} options={ {headerShown: false} } />
+            <Stack.Screen name="AlterarRefeicao" component={AlterarRefeicao} options={ {headerShown: false} } />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </>
+    );
+  }
+  
 };
 
 const styles = StyleSheet.create({
@@ -75,4 +94,3 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;

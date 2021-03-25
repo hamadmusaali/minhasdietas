@@ -32,7 +32,12 @@ export default class Login extends React.Component {
 
         const registerUserSuccess = () => {
             this.props.navigation.navigate('Login');
-
+            this.setState({
+                email: "",
+                password: "",
+                passwordRepeat: "",
+                message: ""
+            })
         }
 
         const registerUserFailed = error => {
@@ -138,13 +143,25 @@ export default class Login extends React.Component {
                                 value={this.state.password}
                                 onChangeText={valor => { this.onChangeHandler('password', valor) }}
                             />
-                            <Icon
+                            {
+                                this.state.showPass1
+                                ?
+                                <Icon
                                 name="eye"
                                 size={24}
                                 color="black"
                                 style={styles.icon}
                                 onPress={() => { this.showPassword1() }}
-                            />
+                                />
+                                :
+                                <Icon
+                                name="eye-slash"
+                                size={24}
+                                color="black"
+                                style={styles.icon}
+                                onPress={() => { this.showPassword1() }}
+                                />
+                            }
                         </View>
                     </Input1>
                     <Input1>
@@ -156,13 +173,25 @@ export default class Login extends React.Component {
                                 value={this.state.passwordRepeat}
                                 onChangeText={valor => { this.onChangeHandler('passwordRepeat', valor) }}
                             />
-                            <Icon
+                            {
+                                this.state.showPass2
+                                ?
+                                <Icon
                                 name="eye"
                                 size={24}
                                 color="black"
                                 style={styles.icon}
                                 onPress={() => { this.showPassword2() }}
-                            />
+                                />
+                                :
+                                <Icon
+                                name="eye-slash"
+                                size={24}
+                                color="black"
+                                style={styles.icon}
+                                onPress={() => { this.showPassword2() }}
+                                />
+                            }
                         </View>
                     </Input1>
 

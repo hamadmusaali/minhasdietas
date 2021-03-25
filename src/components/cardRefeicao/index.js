@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
     },
     card: {
         backgroundColor: 'white',
-        width: 300,
         height: 240,
         elevation: 8,
         marginHorizontal: 30,
