@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 
 import Home from '../../view/home';
-import AddDieta from '../../view/addDieta';
+import AddDietaDrawer from '../../view/addDietaDrawer';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -23,6 +23,11 @@ export default function Menu() {
                 name="Home"
                 component={Home}
                 options={{ drawerIcon: config => <Icon name="home" size={30} color="#fff" /> }}
+            />
+            <Drawer.Screen
+                name="Adicionar Dieta"
+                component={AddDietaDrawer}
+                options={{ drawerIcon: config => <Icon name="plus" size={30} color="#fff" /> }}
             />
         </Drawer.Navigator>
     )

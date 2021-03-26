@@ -116,6 +116,8 @@ export default class Login extends React.Component {
                         <TextInput
                             style={styles.textInput}
                             placeholder="E-mail"
+                            keyboardType="email-address"
+                            autoCapitalize="none"
                             value={this.state.email}
                             onChangeText={valor => { this.onChangeHandler('email', valor) }}
                         />
@@ -200,6 +202,7 @@ const styles = StyleSheet.create({
         marginRight: 30,
         marginLeft: 30,
         backgroundColor: '#fff',
+        position: 'relative'
     },
     textInput2: {
         backgroundColor: 'white',
@@ -207,8 +210,8 @@ const styles = StyleSheet.create({
         width: 250
     },
     icon: {
-        marginLeft: 260,
-        marginTop: 15,
+        right: 12,
+        top: 12,
         position: 'absolute'
     },
     msg: {

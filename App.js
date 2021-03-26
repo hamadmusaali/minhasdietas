@@ -9,6 +9,7 @@ import Login from './src/view/login';
 import Register from './src/view/register';
 import Menu from './src/components/menu';
 import AddDieta from './src/view/addDieta';
+import AddDietaDrawer from './src/view/addDieta';
 import Home from './src/view/home';
 import ListaRefeicao from './src/view/listaRefeicao';
 import AlterarDieta from './src/view/alterarDieta';
@@ -43,6 +44,7 @@ export default class App extends React.Component {
             <Stack.Screen name="Menu" component={Menu} options={ {headerShown: false} } />
             <Stack.Screen name="Home" component={Home} options={ {headerShown: false} } />
             <Stack.Screen name="AddDieta" component={AddDieta} options={ {headerShown: false} } />
+            <Stack.Screen name="AddDietaDrawer" component={AddDietaDrawer} options={ {headerShown: false} } />
             <Stack.Screen name="AlterarDieta" component={AlterarDieta} options={ {headerShown: false} } />
             <Stack.Screen name="ListaRefeicao" component={ListaRefeicao} options={ {headerShown: false} } />
             <Stack.Screen name="AddRefeicao" component={AddRefeicao} options={ {headerShown: false} } />

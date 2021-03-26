@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 
-import HeaderVoltar from '../../components/headerVoltar';
 import Input2 from '../../components/input2';
 import Botao1 from '../../components/botao1';
 import Botao3 from '../../components/botao3';
+import HeaderDrawNav from '../../components/headerDrawNav';
 
-export default class AddDieta extends React.Component {
+export default class AddDietaDrawer extends React.Component {
 
     render() {
         return (
             <View style={styles.container}>
-                <HeaderVoltar title='Adicionar Nova Dieta' navigation={this.props.navigation} />
+                <HeaderDrawNav title='Adicionar Nova Dieta' navigation={this.props.navigation} />
                 <Input2 label="Título">
                     <TextInput
                         style={styles.textInput}
@@ -52,7 +52,7 @@ export default class AddDieta extends React.Component {
                 <View style={styles.botao}>
                     <Botao1
                         label="ADICIONAR"
-                        onPress={() => { this.props.navigation.navigate('Menu') }}
+                        onPress={() => { this.props.navigation.navigate('Home') }}
                     />
                 </View>
             </View>

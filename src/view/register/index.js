@@ -46,18 +46,18 @@ export default class Login extends React.Component {
 
         if (password == passwordRepeat) {
             firebase
-            .auth()
-            .createUserWithEmailAndPassword(email, password)
-            .then(registerUserSuccess)
-            .catch(registerUserFailed)
-            .then(() => {
-                this.setState({
-                    isLoading: false
-                });
-            })
+                .auth()
+                .createUserWithEmailAndPassword(email, password)
+                .then(registerUserSuccess)
+                .catch(registerUserFailed)
+                .then(() => {
+                    this.setState({
+                        isLoading: false
+                    });
+                })
         }
         else
-            this.setState({ 
+            this.setState({
                 message: "As senhas não são iguais!",
                 isLoading: false
             })
@@ -98,7 +98,7 @@ export default class Login extends React.Component {
     }
 
     renderButton() {
-        
+
         return (
             <View style={styles.botao} >
                 <Botao2 label="CADASTRAR" onPress={() => this.processRegister()} />
@@ -121,15 +121,23 @@ export default class Login extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <HeaderVoltar navigation={this.props.navigation} />
+            <View style={styles.container} >
+                <Icon
+                    name="arrow-left"
+                    size={20}
+                    color="white"
+                    onPress={() => this.props.navigation.pop()}
+                    style={{margin: 10}}
+                />
                 <KeyboardAwareScrollView>
-                    <Image source={require('../../../imagens/logo.jpg')} style={{ alignSelf: 'center' }} />
+                    <Image source={require('../../../imagens/logo.jpg')} style={{ alignSelf: 'center', marginTop: -35}} />
 
                     <Input1 >
                         <TextInput
                             style={styles.textInput}
                             placeholder="E-mail"
+                            keyboardType="email-address"
+                            autoCapitalize="none"
                             value={this.state.email}
                             onChangeText={valor => { this.onChangeHandler('email', valor) }}
                         />
@@ -145,22 +153,22 @@ export default class Login extends React.Component {
                             />
                             {
                                 this.state.showPass1
-                                ?
-                                <Icon
-                                name="eye"
-                                size={24}
-                                color="black"
-                                style={styles.icon}
-                                onPress={() => { this.showPassword1() }}
-                                />
-                                :
-                                <Icon
-                                name="eye-slash"
-                                size={24}
-                                color="black"
-                                style={styles.icon}
-                                onPress={() => { this.showPassword1() }}
-                                />
+                                    ?
+                                    <Icon
+                                        name="eye"
+                                        size={24}
+                                        color="black"
+                                        style={styles.icon}
+                                        onPress={() => { this.showPassword1() }}
+                                    />
+                                    :
+                                    <Icon
+                                        name="eye-slash"
+                                        size={24}
+                                        color="black"
+                                        style={styles.icon}
+                                        onPress={() => { this.showPassword1() }}
+                                    />
                             }
                         </View>
                     </Input1>
@@ -175,32 +183,32 @@ export default class Login extends React.Component {
                             />
                             {
                                 this.state.showPass2
-                                ?
-                                <Icon
-                                name="eye"
-                                size={24}
-                                color="black"
-                                style={styles.icon}
-                                onPress={() => { this.showPassword2() }}
-                                />
-                                :
-                                <Icon
-                                name="eye-slash"
-                                size={24}
-                                color="black"
-                                style={styles.icon}
-                                onPress={() => { this.showPassword2() }}
-                                />
+                                    ?
+                                    <Icon
+                                        name="eye"
+                                        size={24}
+                                        color="black"
+                                        style={styles.icon}
+                                        onPress={() => { this.showPassword2() }}
+                                    />
+                                    :
+                                    <Icon
+                                        name="eye-slash"
+                                        size={24}
+                                        color="black"
+                                        style={styles.icon}
+                                        onPress={() => { this.showPassword2() }}
+                                    />
                             }
                         </View>
                     </Input1>
 
-                    {   
+                    {
                         this.state.isLoading
-                        ?
-                        <ActivityIndicator size="large" color="white" style={{ marginTop: 15 }}/>
-                        :
-                        this.renderButton()                         
+                            ?
+                            <ActivityIndicator size="large" color="white" style={{ marginTop: 15 }} />
+                            :
+                            this.renderButton()
                     }
 
                     {this.renderMessage()}
@@ -237,6 +245,7 @@ const styles = StyleSheet.create({
         marginRight: 30,
         marginLeft: 30,
         backgroundColor: '#fff',
+        position: 'relative'
     },
     textInput2: {
         backgroundColor: 'white',
@@ -244,8 +253,8 @@ const styles = StyleSheet.create({
         width: 250
     },
     icon: {
-        marginLeft: 260,
-        marginTop: 15,
+        right: 12,
+        top: 12,
         position: 'absolute'
     },
     msg: {
