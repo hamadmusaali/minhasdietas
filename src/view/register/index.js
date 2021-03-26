@@ -6,7 +6,6 @@ import firebase from 'firebase';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Botao2 from '../../components/botao2';
-import HeaderVoltar from '../../components/headerVoltar';
 import Input1 from '../../components/input1';
 
 export default class Login extends React.Component {
@@ -41,7 +40,7 @@ export default class Login extends React.Component {
         }
 
         const registerUserFailed = error => {
-            this.setState({ message: "Erro ao cadastrar!" })
+            this.setState({ message: this.getMessageByError(error.code) })
         }
 
         if (password == passwordRepeat) {
@@ -61,6 +60,25 @@ export default class Login extends React.Component {
                 message: "As senhas não são iguais!",
                 isLoading: false
             })
+    }
+
+    getMessageByError(code) {
+        switch(code) {
+            case "auth/invalid-email":
+                return "E-mail inválido";
+            case "auth/wrong-password":
+                return "Senha incorreta.";
+            case "auth/email-already-exists":
+                return "O e-mail já está em uso.";
+            case "auth/email-already-in-use":
+                return "O e-mail já está em uso.";
+            case "auth/invalid-password":
+                return "Senha deve ter no mínimo 7 caracteres";
+            case "auth/weak-password":
+                return "Senha deve ter no mínimo 7 caracteres";
+            default:
+                return "Erro desconhecido";
+        }
     }
 
     onChangeHandler(field, valor) {

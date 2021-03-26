@@ -74,12 +74,14 @@ export default class Login extends React.Component {
 
     getMessageByError(code) {
         switch(code) {
+            case "auth/invalid-email":
+                return "E-mail inválido";
             case "auth/user-not-found":
-                return "E-mail inexistente";
+                return "E-mail inexistente.";
             case "auth/wrong-password":
-                return "Senha incorreta";
-            default: 
-                return "Preencha os campos de e-mail e senha!";
+                return "Senha incorreta.";
+            default:
+                return "Erro desconhecido";
         }
     }
 
