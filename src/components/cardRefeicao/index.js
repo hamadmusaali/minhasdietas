@@ -15,7 +15,7 @@ const CardRefeicao = (props) => {
             <View style={styles.card}>
                 <View style={styles.header}>
                     <Text style={styles.textTitulo}>Refeição {titulo}</Text>
-                    <Icon2 name="restaurant" size={30} color="white" style={{ marginLeft: 150, marginTop: 5 }} />
+                    <Icon2 name="restaurant" size={30} color="white" style={{ marginRight: 10, marginTop: 5 }} />
                 </View>
                 <View style={styles.conteudo}>
                     <Text style={styles.textConteudo}>Prato: {prato}</Text>
@@ -71,7 +71,8 @@ const styles = StyleSheet.create({
     header: {
         backgroundColor: '#ADD8E6',
         height: 45,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     },
     textConteudo: {
         marginTop: 16,
