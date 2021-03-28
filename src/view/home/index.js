@@ -21,7 +21,7 @@ export default class Home extends React.Component {
 
                     <CardDieta
                         titulo="Título da dieta"
-                        descricao="Descrição da dieta, estou apenas escrevendo aqui para encher linguiça, para ver como fica"
+                        descricao="Descrição da dieta, estou apenas escrevendo aqui para testar como ficaria uma descrição"
                         peso="X"
                         idade="Y"
                         onPress={() => { this.props.navigation.navigate('ListaRefeicao') }}
@@ -29,7 +29,7 @@ export default class Home extends React.Component {
                     />
                     <CardDieta
                         titulo="Título da dieta"
-                        descricao="Descrição da dieta, estou apenas escrevendo aqui para encher linguiça, para ver como fica"
+                        descricao="Descrição da dieta, estou apenas escrevendo aqui para testar como ficaria uma descrição"
                         peso="X"
                         idade="Y"
                         onPress={() => { this.props.navigation.navigate('ListaRefeicao') }}
@@ -37,7 +37,7 @@ export default class Home extends React.Component {
                     />
                     <CardDieta
                         titulo="Título da dieta"
-                        descricao="Descrição da dieta, estou apenas escrevendo aqui para encher linguiça, para ver como fica"
+                        descricao="Descrição da dieta, estou apenas escrevendo aqui para testar como ficaria uma descrição"
                         peso="X"
                         idade="Y"
                         onPress={() => { this.props.navigation.navigate('ListaRefeicao') }}
@@ -45,7 +45,7 @@ export default class Home extends React.Component {
                     />
                     <CardDieta
                         titulo="Título da dieta"
-                        descricao="Descrição da dieta, estou apenas escrevendo aqui para encher linguiça, para ver como fica"
+                        descricao="Descrição da dieta, estou apenas escrevendo aqui para testar como ficaria uma descrição"
                         peso="X"
                         idade="Y"
                         onPress={() => { this.props.navigation.navigate('ListaRefeicao') }}
